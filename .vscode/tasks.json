@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "compile and run (PowerShell)",
+            "type": "shell",
+            "command": "javac -cp . ${file}; Get-Content input.txt | java -cp . ${file} | Out-File -Encoding utf8 output.txt",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "compile and run with package (PowerShell)",
+            "type": "shell",
+            "command": "javac -cp . ${file}; Get-Content input.txt | java -cp . ${input:packageName}.${file} | Out-File -Encoding utf8 output.txt",
+            "group": "build",
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "packageName",
+            "description": "Enter package name",
+            "default": "Sortings",
+            "type": "promptString"
+        }
+    ]
+}
