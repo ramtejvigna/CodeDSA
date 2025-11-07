@@ -38,6 +38,7 @@ public class IsaMatdin {
             }
 
             printArray(checkSort(arr, n));
+            System.out.println();
         }
 
         sc.close();

@@ -2,29 +2,14 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "compile and run",
+            "label": "compile and run java",
             "type": "shell",
-            "command": "javac -cp . ${file} && java -cp . ${fileBasenameNoExtension} < input.txt > output.txt",
+            "command": "javac -d . ${file} && java -cp . ${file} < input.txt > output.txt",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "problemMatcher": []
-        },
-        {
-            "label": "compile and run with package",
-            "type": "shell",
-            "command": "javac -cp . ${file} && java -cp . ${input:packageName}.${fileBasenameNoExtension} < input.txt > output.txt",
-            "group": "build",
-            "problemMatcher": []
-        }
-    ],
-    "inputs": [
-        {
-            "id": "packageName",
-            "description": "Enter package name",
-            "default": "Sortings",
-            "type": "promptString"
         }
     ]
 }
