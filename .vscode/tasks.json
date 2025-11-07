@@ -2,9 +2,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "compile and run (PowerShell)",
+            "label": "compile and run",
             "type": "shell",
-            "command": "javac -cp . ${file}; Get-Content input.txt | java -cp . ${file} | Out-File -Encoding utf8 output.txt",
+            "command": "javac -cp . ${file} && java -cp . ${fileBasenameNoExtension} < input.txt > output.txt",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -12,9 +12,9 @@
             "problemMatcher": []
         },
         {
-            "label": "compile and run with package (PowerShell)",
+            "label": "compile and run with package",
             "type": "shell",
-            "command": "javac -cp . ${file}; Get-Content input.txt | java -cp . ${input:packageName}.${file} | Out-File -Encoding utf8 output.txt",
+            "command": "javac -cp . ${file} && java -cp . ${input:packageName}.${fileBasenameNoExtension} < input.txt > output.txt",
             "group": "build",
             "problemMatcher": []
         }
